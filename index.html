@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShreeYaanshiTech | Expert-Led Software Training & Placement Institute</title>
+    <style>
+        :root {
+            --primary: #0f4c81;
+            --secondary: #f58220;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .btn {
+            background: var(--secondary);
+            color: #ffffff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #d96b0c;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f4c81 0%, #1e293b 100%);
+            color: #ffffff;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+
+        /* LMS App Section */
+        .app-banner {
+            background: #e2e8f0;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .app-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            gap: 2rem;
+        }
+
+        .app-text {
+            text-align: left;
+            max-width: 500px;
+        }
+
+        .app-text h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Section Layouts */
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+        }
+
+        .section-title p {
+            color: var(--gray);
+        }
+
+        /* Card Grids */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+        }
+
+        .card .badge {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact & Form */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="https://ShreeYaanshiTech.com" class="logo">ShreeYaanshi<span>Tech</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#lms">LMS App</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn">Enroll Now</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Advance Your IT Career with ShreeYaanshiTech</h1>
+            <p>Best Training Institute for Expert-Led Online & Classroom Software Courses with Hands-On Industry Projects.</p>
+            <a href="#courses" class="btn">Explore Programs</a>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>2+ Years</h3>
+                    <p>Training Excellence</p>
+                </div>
+                <div class="stat-card">
+                    <h3>200+</h3>
+                    <p>Students Placed</p>
+                </div>
+                <div class="stat-card">
+                    <h3>98%</h3>
+                    <p>Recommendation Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LMS App Feature Banner -->
+    <section class="app-banner" id="lms">
+        <div class="app-container">
+            <div class="app-text">
+                <h2>Unlock Your Potential with the ShreeYaanshiTech LMS App</h2>
+                <p>Experience seamless and engaging digital learning at your fingertips. Access structured course materials, join interactive live sessions, and track your progress in real-time.</p>
+            </div>
+            <div>
+                <a href="#contact" class="btn">Download App Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Placement Programs -->
+    <section class="section" id="courses">
+        <div class="section-title">
+            <h2>Featured Placement Assistance Programs</h2>
+            <p>Comprehensive, Job-Oriented Career Programs Designed by Industry Experts</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <span class="badge">6 Months Program</span>
+                <h3>Full Stack Java Placement Assistance</h3>
+                <p>Master Core & Advanced Java, Spring Boot, Microservices, and Frontend Web Development with real-time projects.</p>
+            </div>
+            <div class="card">
+                <span class="badge">6 Months Program</span>
+                <h3>Full Stack Python & Gen AI Program</h3>
+                <p>Cover Python programming, Data Science, Generative AI, Agentic AI, Frameworks, and placement assistance.</p>
+            </div>
+            <div class="card">
+                <span class="badge">6 Months Program</span>
+                <h3>Full Stack .NET Placement Program</h3>
+                <p>Build enterprise web apps with C#.NET, ASP.NET MVC, Core 9.0, Web APIs, and Cloud Integration.</p>
+            </div>
+            <div class="card">
+                <span class="badge">4 Months Program</span>
+                <h3>Full Stack Data Science & AI</h3>
+                <p>Learn Python EDA, Machine Learning, AI models, Data Analytics, Power BI, and real-world workflows.</p>
+            </div>
+            <div class="card">
+                <span class="badge">Trending Course</span>
+                <h3>Azure Data Engineer</h3>
+                <p>Master Cloud Data Engineering using Azure Data Factory, Databricks, and Synapse Analytics.</p>
+            </div>
+            <div class="card">
+                <span class="badge">Trending Course</span>
+                <h3>Playwright Automation with TypeScript</h3>
+                <p>Hands-on automation testing for modern web application pipelines and browser automation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Services -->
+    <section class="section" id="services">
+        <div class="section-title">
+            <h2>Our Training Services</h2>
+            <p>Flexible Learning Options Tailored for Freshers, Professionals, and Enterprises</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>Online & Classroom Training</h3>
+                <p>Interactive live online sessions and state-of-the-art classroom lab facilities led by real-time industry mentors.</p>
+            </div>
+            <div class="card">
+                <h3>Real-Time Industry Projects</h3>
+                <p>Practical learning by doing—mirroring real-world IT scenarios with dedicated mentor guidance.</p>
+            </div>
+            <div class="card">
+                <h3>30-Day Internship Program</h3>
+                <p>SSC NASSCOM recognized certificate internship covering AI, Gen AI, Machine Learning, and Data Analytics.</p>
+            </div>
+            <div class="card">
+                <h3>Weekend Training Programs</h3>
+                <p>Flexible weekend schedules for working professionals looking to upskill in emerging technologies.</p>
+            </div>
+            <div class="card">
+                <h3>Workshops & Bootcamps</h3>
+                <p>Short-term transformative workshops focused on cutting-edge IT tools, coding challenges, and use cases.</p>
+            </div>
+            <div class="card">
+                <h3>Corporate Software Training</h3>
+                <p>Tailored workforce enablement programs to boost skillsets and technical efficiency in modern enterprises.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Registration -->
+    <section class="section" id="contact">
+        <div class="contact-container">
+            <div>
+                <h2>Get in Touch with ShreeYaanshiTech</h2>
+                <p style="margin-bottom: 1.5rem; color: var(--gray);">Have questions about upcoming batches, fees, or placement registration? Fill out the form or reach out to our team directly.</p>
+
+                <p><strong>Official Website:</strong> <a href="https://ShreeYaanshiTech.com">ShreeYaanshiTech.com</a></p>
+                <p><strong>Email Support:</strong> <a href="mailto:Support@Shreeyaanshitech.com">Support@Shreeyaanshitech.com</a></p>
+                <p style="margin-top: 1rem;"><strong>Head Office:</strong> Sastri Nagar, Akkayyapalli, Kadapa, Andhra Pradesh,India -516003</p>
+            </div>
+
+            <form>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Support@Shreeyaanshitech.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="course">Select Course</label>
+                    <select id="course">
+                        <option>Full Stack Java Placement Assistance</option>
+                        <option>Full Stack Python & Gen AI</option>
+                        <option>Full Stack .NET Placement Program</option>
+                        <option>Full Stack Data Science & AI</option>
+                        <option>Azure Data Engineer</option>
+                        <option>Playwright Automation with TypeScript</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mode">Training Mode</label>
+                    <select id="mode">
+                        <option>Online Training</option>
+                        <option>Classroom Training</option>
+                        <option>Weekend Batch</option>
+                    </select>
+                </div>
+                <button type="button" class="btn" style="width: 100%;">Submit Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <a href="https://ShreeYaanshiTech.com">ShreeYaanshiTech.com</a>. All Rights Reserved. | Email: Support@Shreeyaanshitech.com | Contact : +91 73311 83593</p>
+    </footer>
+
+</body>
+</html>
