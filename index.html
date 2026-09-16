@@ -29,7 +29,7 @@
         /* Navigation */
         header {
             background: #ffffff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.10);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -37,64 +37,151 @@
 
         .nav-container {
             max-width: 1200px;
+            min-height: 78px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
+            padding: 0 2rem;
+            gap: 2rem;
         }
 
-       /* Website Logo */
-.logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-.logo img {
-    width: 100px;
-    height: auto;
-    display: block;
-}
-
-/* Mobile Logo */
-@media (max-width: 768px) {
-    .logo img {
-        width: 150px;
-    }
-}
-
-                nav ul {
+        /* Website Logo */
+        .logo {
             display: flex;
+            align-items: center;
+            text-decoration: none;
+            flex: 0 0 auto;
+        }
+
+        .logo img {
+            width: 125px;
+            height: auto;
+            max-height: 52px;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Navigation Links */
+        nav {
+            margin-left: auto;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             list-style: none;
-            gap: 1.5rem;
+            gap: 1.8rem;
         }
 
         nav a {
+            display: inline-flex;
+            align-items: center;
+            height: 40px;
+            padding: 0.25rem 0;
             text-decoration: none;
             color: var(--dark);
             font-weight: 600;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            transition: color 0.3s, transform 0.2s;
         }
 
         nav a:hover {
             color: var(--secondary);
+            transform: translateY(-1px);
         }
 
         .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background: var(--secondary);
             color: #ffffff;
-            padding: 0.6rem 1.2rem;
-            border-radius: 5px;
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
-            transition: background 0.3s;
+            white-space: nowrap;
+            transition: background 0.3s, transform 0.2s;
             border: none;
             cursor: pointer;
         }
 
         .btn:hover {
             background: #d96b0c;
+            transform: translateY(-1px);
+        }
+
+        /* Tablet */
+        @media (max-width: 1000px) {
+            .nav-container {
+                gap: 1.2rem;
+                padding: 0 1.25rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav a {
+                font-size: 0.88rem;
+            }
+
+            .logo img {
+                width: 115px;
+            }
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            header {
+                position: relative;
+            }
+
+            .nav-container {
+                min-height: auto;
+                padding: 0.8rem 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.7rem 1rem;
+            }
+
+            .logo {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .logo img {
+                width: 125px;
+                max-height: 48px;
+            }
+
+            nav {
+                width: 100%;
+                margin-left: 0;
+                overflow-x: auto;
+                scrollbar-width: none;
+            }
+
+            nav::-webkit-scrollbar {
+                display: none;
+            }
+
+            nav ul {
+                width: max-content;
+                margin: 0 auto;
+                gap: 1.1rem;
+            }
+
+            nav a {
+                font-size: 0.88rem;
+                height: 36px;
+            }
+
+            .nav-container > .btn {
+                margin: 0 auto;
+            }
         }
 
         /* Hero Section */
@@ -224,7 +311,93 @@
             margin-bottom: 1rem;
         }
 
-   /* Contact & CEO Section */ .contact-container { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; background: #ffffff; padding: 3rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); align-items: center; } /* CEO Profile Card */ .ceo-card { text-align: center; background: #f8fafc; padding: 2rem; border-radius: 12px; border-top: 5px solid var(--secondary); box-shadow: 0 4px 12px rgba(0,0,0,0.08); } .ceo-image { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 5px solid var(--primary); margin-bottom: 1.2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.15); } .ceo-card h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 0.3rem; } .ceo-designation { color: var(--secondary); font-size: 1.05rem; font-weight: 700; margin-bottom: 1rem; } .ceo-message { color: var(--gray); line-height: 1.6; } /* Mobile Responsive */ @media (max-width: 768px) { .contact-container { grid-template-columns: 1fr; padding: 2rem; } .ceo-card { margin-top: 1rem; } .ceo-image { width: 150px; height: 150px; } }
+   /* Contact & CEO Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+            gap: 3rem;
+            background: #ffffff;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            align-items: center;
+        }
+
+        .contact-info {
+            min-width: 0;
+        }
+
+        .contact-info h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.65rem;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            color: var(--secondary);
+        }
+
+        /* CEO Profile Card */
+        .ceo-card {
+            text-align: center;
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            border-top: 5px solid var(--secondary);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .ceo-image {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--primary);
+            margin-bottom: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .ceo-card h3 {
+            color: var(--primary);
+            font-size: 1.45rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .ceo-designation {
+            color: var(--secondary);
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .ceo-message {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Contact Mobile Responsive */
+        @media (max-width: 850px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+                gap: 2rem;
+            }
+
+            .ceo-card {
+                max-width: 520px;
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
 
         /* Footer */
         footer {
