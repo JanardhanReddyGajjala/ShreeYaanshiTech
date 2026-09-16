@@ -44,18 +44,27 @@
             padding: 1rem 2rem;
         }
 
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
+       /* Website Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
 
-        .logo span {
-            color: var(--secondary);
-        }
+.logo img {
+    width: 190px;
+    height: auto;
+    display: block;
+}
 
-        nav ul {
+/* Mobile Logo */
+@media (max-width: 768px) {
+    .logo img {
+        width: 150px;
+    }
+}
+
+                nav ul {
             display: flex;
             list-style: none;
             gap: 1.5rem;
